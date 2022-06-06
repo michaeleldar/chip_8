@@ -114,3 +114,31 @@ class CPU:
 
     def loadRom(self, romName):
         rom = open("roms/" + romName, "r")
+        self.loadProgramIntoMemory(rom.read())
+        rom.close()
+
+    def cycle(self):
+        for i in range(0, self.speed):
+            if not self.paused:
+                opcode = self.memory[self.pc] << 8 | self.memory[self.pc + 1]
+                self.executeInstruction(opcode)
+
+        if not self.paused:
+            self.updateTimers()
+
+        self.renderer.render()
+
+    def updateTimers(self):
+        if self.delayTimer > 0:
+            self.delayTimer = self.delayTimer - 1
+
+    def executeInstruction(self, opcode):
+        self.pc = self.pc + 2
+        x = (opcode & 0x0F00) >> 4
+        y = (opcode & 0x00F0) >> 4
+
+
+
+
+        if opcode & 0xF000:
+            
