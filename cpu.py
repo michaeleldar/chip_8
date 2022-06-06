@@ -137,8 +137,78 @@ class CPU:
         x = (opcode & 0x0F00) >> 4
         y = (opcode & 0x00F0) >> 4
 
+        if (opcode & 0xF000) == 0x0000:
+            if opcode == 0x00E0:
+                pass
 
-
-
-        if opcode & 0xF000:
-            
+            elif opcode == 0x00EE:
+                pass
+        elif (opcode & 0xF000) == 0x1000:
+            pass
+        elif (opcode & 0xF000) == 0x2000:
+            pass
+        elif (opcode & 0xF000) == 0x3000:
+            pass
+        elif (opcode & 0xF000) == 0x4000:
+            pass
+        elif (opcode & 0xF000) == 0x5000:
+            pass
+        elif (opcode & 0xF000) == 0x6000:
+            pass
+        elif (opcode & 0xF000) == 0x7000:
+            pass
+        elif (opcode & 0xF000) == 0x8000:
+            if (opcode & 0xF) == 0x0:
+                pass
+            elif (opcode & 0xF) == 0x1:
+                pass
+            elif (opcode & 0xF) == 0x2:
+                pass
+            elif (opcode & 0xF) == 0x3:
+                pass
+            elif (opcode & 0xF) == 0x4:
+                pass
+            elif (opcode & 0xF) == 0x5:
+                pass
+            elif (opcode & 0xF) == 0x6:
+                pass
+            elif (opcode & 0xF) == 0x7:
+                pass
+            elif (opcode & 0xF) == 0xE:
+                pass
+        elif (opcode & 0xF000) == 0x9000:
+            pass
+        elif (opcode & 0xF000) == 0xA000:
+            pass
+        elif (opcode & 0xF000) == 0xB000:
+            pass
+        elif (opcode & 0xF000) == 0xC000:
+            pass
+        elif (opcode & 0xF000) == 0xD000:
+            pass
+        elif (opcode & 0xF000) == 0xE000:
+            if (opcode & 0xFF) == 0x9E:
+                pass
+            elif (opcode & 0xFF) == 0xA1:
+                pass
+        elif (opcode & 0xF000) == 0xF000:
+            if (opcode & 0xFF) == 0x07:
+                pass
+            elif (opcode & 0xFF) == 0x0A:
+                pass
+            elif (opcode & 0xFF) == 0x15:
+                pass
+            elif (opcode & 0xFF) == 0x18:
+                pass
+            elif (opcode & 0xFF) == 0x1E:
+                pass
+            elif (opcode & 0xFF) == 0x29:
+                pass
+            elif (opcode & 0xFF) == 0x33:
+                pass
+            elif (opcode & 0xFF) == 0x55:
+                pass
+            elif (opcode & 0xFF) == 0x65:
+                pass
+        else:
+            raise SyntaxError("Unknown opcode " + opcode)
