@@ -2,14 +2,6 @@ from pynput import keyboard
 
 
 class Keyboard:
-    def on_press(key):
-        if key == keyboard.Key.esc:
-            quit()
-        try:
-            k = key.char
-        except:
-            k = key.name
-
     def __init__(self):
         self.KEYMAP = {
             49: 0x1,
@@ -32,3 +24,12 @@ class Keyboard:
         self.keysPressed = []
 
         self.onNextKeyPress = 0
+
+    def on_press(self, key):
+        if key == keyboard.Key.esc:
+            quit()
+        try:
+            k = key.char
+        except:
+            k = key.name
+        return k
