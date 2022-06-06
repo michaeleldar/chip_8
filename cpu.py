@@ -149,26 +149,34 @@ class CPU:
             self.stack.append(self.pc)
             self.pc = opcode & 0xFFF
         elif (opcode & 0xF000) == 0x3000:
-            
+            if self.v[x] == (opcode & 0xFF):
+                self.pc = self.pc + 2
         elif (opcode & 0xF000) == 0x4000:
-            pass
+            if self.v[x] != (opcode & 0xFF):
+                self.pc = self.pc + 2
         elif (opcode & 0xF000) == 0x5000:
-            pass
+            if self.v[x] == self.v[y]:
+                self.pc = self.pc + 2
         elif (opcode & 0xF000) == 0x6000:
-            pass
+            self.v[x] = opcode & 0xFF
         elif (opcode & 0xF000) == 0x7000:
-            pass
+            self.v[x] = self.v[x] + (opcode & 0xFF)
         elif (opcode & 0xF000) == 0x8000:
             if (opcode & 0xF) == 0x0:
-                pass
+                self.v[x] = self.v[y]
             elif (opcode & 0xF) == 0x1:
-                pass
+                self.v[x] |= self.v[y]
             elif (opcode & 0xF) == 0x2:
-                pass
+                self.v[x] &= self.v[y]
             elif (opcode & 0xF) == 0x3:
-                pass
+                self.v[x] ^= self.v[y]
             elif (opcode & 0xF) == 0x4:
-                pass
+                sum = self.v[x] + self.v[y]
+
+                self.v[0xF] = 0
+
+                if sum > 0xFF:
+                    self
             elif (opcode & 0xF) == 0x5:
                 pass
             elif (opcode & 0xF) == 0x6:
