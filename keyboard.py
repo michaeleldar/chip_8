@@ -1,3 +1,4 @@
+from ssl import OP_NO_COMPRESSION
 from pynput import keyboard
 
 
@@ -33,3 +34,11 @@ class Keyboard:
         except:
             k = key.name
         return k
+
+    def isKeyPressed(self, keyCode):
+        if self.on_press() == keyCode:
+            print("False: " + keyCode)
+            return True
+        else:
+            print("True: " + keyCode)
+            return False
