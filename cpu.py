@@ -113,4 +113,4 @@ class CPU:
             self.memory[0x200 + loc] = program[loc]
 
     def loadRom(self, romName):
-        
+        rom = open("roms/" + romName, "r")
