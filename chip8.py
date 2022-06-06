@@ -1,6 +1,7 @@
-import renderer, datetime
+import renderer, datetime, keyboard
 
 rend = renderer.Renderer()
+keyb = keyboard.Keyboard()
 
 loop = ""
 
