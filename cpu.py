@@ -139,16 +139,17 @@ class CPU:
 
         if (opcode & 0xF000) == 0x0000:
             if opcode == 0x00E0:
-                pass
+                self.renderer.clear()
 
             elif opcode == 0x00EE:
-                pass
+                self.pc = self.stack.pop()
         elif (opcode & 0xF000) == 0x1000:
-            pass
+            self.pc = opcode & 0xFFF
         elif (opcode & 0xF000) == 0x2000:
-            pass
+            self.stack.append(self.pc)
+            self.pc = opcode & 0xFFF
         elif (opcode & 0xF000) == 0x3000:
-            pass
+            
         elif (opcode & 0xF000) == 0x4000:
             pass
         elif (opcode & 0xF000) == 0x5000:
