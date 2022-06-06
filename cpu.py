@@ -111,3 +111,6 @@ class CPU:
     def loadProgramIntoMemory(self, program):
         for loc in range(0, program.__len__()):
             self.memory[0x200 + loc] = program[loc]
+
+    def loadRom(self, romName):
+        
