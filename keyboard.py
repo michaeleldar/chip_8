@@ -1,0 +1,3 @@
+class Keyboard:
+    def __init__(self):
+        self.KEYMAP = {49: 0x1, 50: 0x2, 51: 0x3, 52: 0xC, 81: 0x4, 87: 0x5}
