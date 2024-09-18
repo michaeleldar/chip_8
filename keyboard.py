@@ -1,6 +1,6 @@
 from ssl import OP_NO_COMPRESSION
 from pynput import keyboard
-
+https://open.spotify.com/playlist/7hv1uadTJlmLASsXrwLymY?si=285ffd16e3624126
 
 class Keyboard:
     def __init__(self):
